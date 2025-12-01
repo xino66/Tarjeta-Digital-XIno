@@ -1,0 +1,183 @@
+/* --- ESTILOS GENERALES --- */
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: moverFondo 15s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    transition: background 0.5s;
+}
+
+@keyframes moverFondo {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- TARJETA --- */
+.tarjeta {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 320px;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    animation: entradaSuave 1s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes entradaSuave {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- FOTO --- */
+.foto-perfil {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+.foto-perfil:hover { transform: scale(1.05); }
+
+/* --- TEXTOS --- */
+h1 { margin: 10px 0 5px 0; font-size: 26px; color: #333; font-weight: 600; }
+p { margin: 0 0 30px 0; color: #666; font-size: 14px; font-weight: 300; }
+
+/* --- BOTONES DE REDES --- */
+.boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-family: inherit;
+}
+.boton:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+.boton i { font-size: 20px; }
+
+/* Colores Redes */
+.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.whatsapp { background-color: #25D366; }
+.tiktok { background-color: #000000; }
+
+/* --- NUEVO: BOTÓN COMPARTIR --- */
+.boton-compartir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    margin: 20px auto 0 auto;
+    background: transparent;
+    border: 2px solid #ccc;
+    color: #666;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    transition: 0.3s;
+    width: auto;
+}
+
+.boton-compartir:hover {
+    border-color: #333;
+    color: #333;
+    background: #f0f0f0;
+}
+
+/* --- VENTANA MODAL (POP UP) --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.activo { display: flex; animation: aparecer 0.3s ease; }
+@keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-contenido {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 300px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+}
+.qr-grande { width: 200px; height: 200px; margin: 15px 0; border: 1px solid #ddd; border-radius: 10px; padding: 5px; }
+.boton-ir { display: inline-block; background-color: #333; color: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-size: 14px; margin-top: 10px; }
+
+/* --- MODO OSCURO --- */
+.boton-flotante {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    z-index: 10;
+}
+
+body.dark-mode { background: #121212; animation: none; }
+body.dark-mode .tarjeta { background-color: #1e1e1e; color: white; }
+body.dark-mode h1 { color: #ffffff; }
+body.dark-mode p { color: #bbbbbb; }
+body.dark-mode .boton-flotante { background: #333; color: yellow; }
+body.dark-mode .foto-perfil { border-color: #333; }
+body.dark-mode .modal-contenido { background-color: #1e1e1e; color: white; }
+body.dark-mode .qr-grande { background-color: white; }
+
+/* Ajuste del botón compartir en modo oscuro */
+body.dark-mode .boton-compartir {
+    border-color: #555;
+    color: #ccc;
+}
+body.dark-mode .boton-compartir:hover {
+    background: #333;
+    color: white;
+    border-color: white;
+}

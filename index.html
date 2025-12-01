@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Anibal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <button id="boton-tema" class="boton-flotante" title="Cambiar Tema">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="tarjeta">
+        <img src="https://ui-avatars.com/api/?name=Anibal+De+la+cruz&background=random&size=200&font-size=0.4" alt="Foto de Perfil" class="foto-perfil">
+        
+        <h1>Anibal De la Cruz</h1>
+        <p>¡Contáctame!</p>
+
+        <div class="contenedor-botones">
+            
+            <button class="boton instagram" onclick="abrirModal('Instagram', 'https://www.instagram.com/xino.66?igsh=MTJrazRuem1qZWI2MA%3D%3D&utm_source=qr')">
+                <i class="fab fa-instagram"></i> Instagram
+            </button>
+
+            <button class="boton whatsapp" onclick="abrirModal('WhatsApp', 'https://wa.me/56978603436')">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </button>
+
+            <button class="boton tiktok" onclick="abrirModal('TikTok', 'https://www.tiktok.com/@klotriston')">
+                <i class="fab fa-tiktok"></i> TikTok
+            </button> 
+            
+            <button id="btn-compartir" class="boton-compartir">
+                <i class="fas fa-share-alt"></i> Compartir Perfil
+            </button>
+
+        </div>
+        
+        <div class="footer">
+            © 2025 XINO66
+        </div>
+    </div>
+
+    <div id="modal-fondo" class="modal-overlay">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+            <h2 id="titulo-red">Red Social</h2>
+            <p>Escanea o toca el botón para ir</p>
+            
+            <img id="imagen-qr-modal" src="" alt="QR Dinámico" class="qr-grande">
+            
+            <a id="boton-ir-enlace" href="#" target="_blank" class="boton-ir">
+                Ir al enlace <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
